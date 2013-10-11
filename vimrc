@@ -40,3 +40,4 @@ autocmd FileType make,automake set noexpandtab "shiftwidth=8 softtabstop=8
 "autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
 
 set laststatus=2
+let g:airline_powerline_fonts = 1
