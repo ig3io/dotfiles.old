@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 set softtabstop=4
 set tabstop=4
 set shiftwidth=4
@@ -36,3 +38,5 @@ autocmd FileType make,automake set noexpandtab "shiftwidth=8 softtabstop=8
 "match ForbiddenWhitespace /\s\+$\|\t/+$\
 " Do not highlight spaces at the end of line while typing on that line.
 "autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
+
+set laststatus=2
