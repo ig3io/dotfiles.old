@@ -1,0 +1,20 @@
+[user]
+	name = Ignacio Contreras
+	email = ignacio@ignacio.cat
+[color]
+	ui = true
+[alias]
+    l = log --pretty=format:'%C(yellow)%h %Cred%ad %C(yellow)%an%Cgreen%d %Creset%s' --date=short --graph --all
+    lo = log --pretty=format:'%C(yellow)%h %Cred%ad %C(yellow)%an%Cgreen%d %Creset%s' --date=short --graph
+    t = tag -l -n
+    b = branch
+    c = checkout
+    s = status
+    v = describe --abbrev=0
+    h = help
+[credential]
+	helper = cache --timeout=7200
+[core]
+	editor = vim
+[push]
+	default = current
