@@ -19,10 +19,10 @@ set $mod Mod1
 new_window pixel 3
 
 # colors
-client.focused          #111111 #000000 #aaaaaa #333333
-client.focused_inactive #444444 #333333 #aaaaaa #333333
-client.unfocused        #333333 #222222 #999999 #444444
-client.urgent           #000000 #900000 #000000 #900000
+client.focused          #333333 #111111 #bbbbbb #222222
+client.focused_inactive #111111 #000000 #aaaaaa #333333
+client.unfocused        #111111 #000000 #aaaaaa #333333
+client.urgent           #333333 #900000 #bbbbbb #900000
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
