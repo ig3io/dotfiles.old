@@ -15,7 +15,7 @@ order += "ethernet eth0"
 order += "battery 0"
 order += "load"
 order += "tztime local"
-order += "tztime berlin"
+order += "tztime madrid"
 
 wireless wlan0 {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
@@ -46,9 +46,9 @@ tztime local {
         format = "%Y-%m-%d %H:%M:%S"
 }
 
-tztime berlin {
-        format = "%Y-%m-%d %H:%M:%S %Z"
-        timezone = "Europe/Berlin"
+tztime madrid {
+        format = "%Y-%m-%d %H:%M:%S"
+        timezone = "Europe/Madrid"
 }
 
 load {
