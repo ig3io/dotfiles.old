@@ -2,8 +2,9 @@ general {
         output_format = "i3bar"
         colors = true
         interval = 5
-        color_good = "#00AA00"
-        color_bad = "#AA0000"
+        color_good = "#3E9A06"
+        color_bad = "#CC0000"
+        color_degraded = "#EDD400"
 }
 
 order += "ipv6"

@@ -166,4 +166,11 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status -c ~/.i3/status
+        
+        colors {
+            background #000000
+            statusline #d3d7cf
+
+            focused_workspace #333333 #000000 #edd400
+        }
 }
