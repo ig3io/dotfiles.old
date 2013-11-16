@@ -15,6 +15,9 @@ exec gnome-sound-applet
 
 set $mod Mod1
 
+# no title-bar in tiling mode
+new_window pixel 3
+
 # colors
 client.focused          #111111 #000000 #aaaaaa #333333
 client.focused_inactive #444444 #333333 #aaaaaa #333333
