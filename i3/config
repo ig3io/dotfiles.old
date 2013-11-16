@@ -16,15 +16,15 @@ exec gnome-sound-applet
 set $mod Mod1
 
 # colors
-client.focused          #111111 #000000 #ffffff #333333
-client.focused_inactive #444444 #333333 #ffffff #333333
-client.unfocused        #333333 #222222 #888888 #444444
+client.focused          #111111 #000000 #aaaaaa #333333
+client.focused_inactive #444444 #333333 #aaaaaa #333333
+client.unfocused        #333333 #222222 #999999 #444444
 client.urgent           #000000 #900000 #000000 #900000
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font xft:Ubuntu Mono Regular 11
+font xft:Inconsolata 11
 
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
@@ -36,7 +36,7 @@ font xft:Ubuntu Mono Regular 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
