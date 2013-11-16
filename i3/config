@@ -5,7 +5,8 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-exec gnome-settings-daemon
+#exec gnome-settings-daemon
+exec nitrogen --set-centered ~/Pictures/sigur.jpg
 exec nm-applet
 exec gnome-sound-applet
 
