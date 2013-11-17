@@ -6,7 +6,7 @@
 #
 
 #exec gnome-settings-daemon
-exec nitrogen --set-centered ~/Pictures/sigur.jpg
+exec nitrogen --set-centered ~/Pictures/sigur.png
 exec nm-applet
 exec gnome-sound-applet
 
@@ -135,6 +135,8 @@ bindsym $mod+Shift+r restart
 
 bindsym $mod+Shift+e exec ~/.i3/i3-exit
 for_window [class="I3-exit" instance="i3-exit"] floating enable
+
+bindsym $mod+Shift+t exec i3lock -c 000000 -i ~/Pictures/sigur.png -t
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
