@@ -10,6 +10,7 @@ set scrolloff=10
 set nu
 syntax on
 
+colorscheme darktango
 set t_Co=256
 set background=dark
 
