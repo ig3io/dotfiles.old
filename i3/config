@@ -52,6 +52,11 @@ bindsym $mod+d exec dmenu_run -fn 'Inconsolata-11' -nb '#000000' -nf '#ffffff'
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# volume controls
+bindsym XF86AudioRaiseVolume exec amixer set Master playback 3+ &> /dev/null
+bindsym XF86AudioLowerVolume exec amixer set Master playback 3- &> /dev/null
+bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle &> /dev/null
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
