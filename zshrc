@@ -53,3 +53,4 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 alias tmux="TERM=screen-256color-bce tmux"
+alias ack="ack-grep --color"
