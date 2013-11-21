@@ -1,55 +1,137 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+alias csyntax="clang -fsyntax-only"
+alias canalyze="clang --analyze"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="bira"
+PROMPT='%{$fg_bold[yellow]%}%n%{$fg[blue]%}%{$reset_color%} %{$fg[blue]%}%{$fg_bold[blue]%}%~ %{$reset_color%}$(git_prompt)$(vi_prompt)%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+export DIRSTACKFILE=~/.zdirs
+export DIRSTACKSIZE=8
+export GREP_OPTIONS='--color=always'
+export HISTFILE=$HOME/.zhistory
+export HISTSIZE=50000
+export KEYTIMEOUT=1
+export LESS='-R'
+export PATH=~/bin/:~/.gem/ruby/2.0.0/bin:$PATH
+export SAVEHIST=10000
+export ZLS_COLORS=$LS_COLORS
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+stty -ixon
 
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+autoload -U colors && colors
+autoload -U compinit && compinit
 
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
+setopt APPEND_HISTORY
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt EXTENDED_GLOB
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt NO_FLOW_CONTROL
+setopt PROMPT_SUBST
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_MINUS
+setopt PUSHD_SILENT
+setopt PUSHD_TOHOME
+setopt VI
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+## ZSTYLE ##
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' users off
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
+zstyle ':completion:*:hosts' hosts $hosts
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+## BINDKEYS ##
+bindkey -v '^r' history-incremental-pattern-search-backward
+bindkey -v '^f' history-incremental-pattern-search-forward
+bindkey -a 'n' down-line-or-search
+bindkey -a 'p' up-line-or-search
+bindkey -v '^[[3~' delete-char
+bindkey -v '^[[7~' beginning-of-line
+bindkey -v '^[[8~' end-of-line
+bindkey -v '^[[Z' reverse-menu-complete
+bindkey -v '^k' kill-buffer
+bindkey -v '^m' check-line
+bindkey -v '^n' down-line-or-search
+bindkey -v '^p' up-line-or-search
+bindkey -v '^s' insert-sudo
 
-# Uncomment following line if you want to disable command autocorrection
-DISABLE_CORRECTION="true"
+## ALIASES ##
+alias ack="ack --color"
+alias cal="cal -3"
+alias cd=" cd"
+alias diff="diff -yEbwB --suppress-common-lines"
+alias ls=" ls --color=auto"
+alias sl="ls"
+alias l="ls -h"
+alias ll="ls -lh"
+alias la="ls -lah"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+## SNIPPETS ##
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+    dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+    [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
+fi
 
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+## FUNCTIONS ##
+insert-sudo() {
+    sudo="sudo "
+    BUFFER="$sudo$BUFFER"
+    CURSOR=$(expr $CURSOR + $(expr length $sudo))
+}
+zle -N insert-sudo
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv)
+chpwd() {
+    print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+}
 
-source $ZSH/oh-my-zsh.sh
+extract() {
+    file=$1
+    filename=$(basename "$file")
+    extension="${filename#*.}"
+    echo "extracting: $extension"
+    case $extension in
+        'zip')
+            unzip $file
+            ;;
+        'tar.gz')
+            tar -xzvf $file
+            ;;
+    esac
+}
 
-# Customize to your needs...
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+check-line() {
+    if [ "$BUFFER" = "" ]; then
+        return
+    fi
+    zle accept-line
+}
+zle -N check-line
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# VI
+zle-keymap-select() {
+    zle reset-prompt
+}
+zle -N zle-keymap-select
 
-alias tmux="TERM=screen-256color-bce tmux"
-alias ack="ack-grep --color"
+vi_prompt() {
+    INDICATOR=" %{$reset_color%}[$fg[magenta]X%{$reset_color%}]"
+    if [ "$KEYMAP" = "vicmd" ]; then
+        echo $INDICATOR
+    fi
+}
+
+# GIT
+git_prompt() {
+    if git rev-parse --git-dir >/dev/null 2>&1; then
+        ref=$(git symbolic-ref HEAD 2>/dev/null || git name-rev --name-only --no-undefined --always HEAD)
+        ref=${ref#refs/heads/}
+        echo "%{$fg_bold[yellow]%}($ref)%{$reset_color%}"
+    fi
+}
