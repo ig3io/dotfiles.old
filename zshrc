@@ -135,3 +135,8 @@ git_prompt() {
         echo "%{$fg[yellow]%}($ref)%{$reset_color%} "
     fi
 }
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
