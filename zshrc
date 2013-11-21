@@ -121,7 +121,7 @@ zle-keymap-select() {
 zle -N zle-keymap-select
 
 vi_prompt() {
-    INDICATOR=" %{$reset_color%}[$fg[magenta]X%{$reset_color%}]"
+    INDICATOR="%{$reset_color%}$fg[cyan]:vi%{$reset_color%} "
     if [ "$KEYMAP" = "vicmd" ]; then
         echo $INDICATOR
     fi
@@ -132,6 +132,6 @@ git_prompt() {
     if git rev-parse --git-dir >/dev/null 2>&1; then
         ref=$(git symbolic-ref HEAD 2>/dev/null || git name-rev --name-only --no-undefined --always HEAD)
         ref=${ref#refs/heads/}
-        echo "%{$fg_bold[yellow]%}($ref)%{$reset_color%}"
+        echo "%{$fg[yellow]%}($ref)%{$reset_color%} "
     fi
 }
