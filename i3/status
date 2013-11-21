@@ -7,18 +7,16 @@ general {
         color_degraded = "#EDD400"
 }
 
-order += "ipv6"
-order += "disk /"
-order += "run_watch DHCP"
-order += "run_watch VPN"
-order += "wireless wlp2s0"
+# order += "ipv6"
+# order += "run_watch DHCP"
+# order += "run_watch VPN"
+order += "wireless wlan0"
 order += "ethernet eth0"
 order += "battery 0"
 order += "load"
-order += "tztime local"
 order += "tztime madrid"
 
-wireless wlp2s0 {
+wireless wlan0 {
         format_up = "W: (%quality at %essid, %bitrate) %ip"
         format_down = "W: down"
 }
@@ -43,19 +41,11 @@ run_watch VPN {
         pidfile = "/var/run/vpnc/pid"
 }
 
-tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
-}
-
 tztime madrid {
         format = "%Y-%m-%d %H:%M:%S %Z"
         timezone = "Europe/Madrid"
 }
 
 load {
-        format = "%5min"
-}
-
-disk "/" {
-        format = "%free"
+        format = "load %5min"
 }
