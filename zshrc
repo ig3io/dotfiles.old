@@ -1,6 +1,3 @@
-alias csyntax="clang -fsyntax-only"
-alias canalyze="clang --analyze"
-
 PROMPT='%{$fg_bold[yellow]%}%n%{$fg[blue]%}%{$reset_color%} %{$fg[blue]%}%{$fg_bold[blue]%}%~ %{$reset_color%}$(git_prompt)$(vi_prompt)%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
 
 export DIRSTACKFILE=~/.zdirs
@@ -72,6 +69,9 @@ alias sl="ls"
 alias l="ls -h"
 alias ll="ls -lh"
 alias la="ls -lah"
+alias csyntax="clang -fsyntax-only"
+alias canalyze="clang --analyze"
+
 
 ## SNIPPETS ##
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
