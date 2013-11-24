@@ -1,4 +1,4 @@
-PROMPT='%{$fg_bold[yellow]%}%n%{$fg[blue]%}%{$reset_color%} %{$fg[blue]%}%{$fg_bold[blue]%}%~ %{$reset_color%}$(git_prompt)$(vi_prompt)%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
+PROMPT='%{$fg_bold[yellow]%}%n%{$fg[blue]%}%{$reset_color%} %{$fg[blue]%}%{$fg_bold[blue]%}%~ %{$reset_color%}$(git_prompt)$(rbenv_prompt)$(vi_prompt)%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
 
 export DIRSTACKFILE=~/.zdirs
 export DIRSTACKSIZE=8
@@ -140,3 +140,7 @@ git_prompt() {
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+rbenv_prompt() {
+    version=$(rbenv version-name)
+    echo "%{$fg[red]%}($version)%{$reset_color%} "
+}
