@@ -7,6 +7,7 @@ Current setup:
 - zsh
 - Vim
 - rbenv
+- pyenv
 - clang
 
 ## Inspiration
