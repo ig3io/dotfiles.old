@@ -134,12 +134,11 @@ git_prompt() {
     if git rev-parse --git-dir >/dev/null 2>&1; then
         ref=$(git symbolic-ref HEAD 2>/dev/null || git name-rev --name-only --no-undefined --always HEAD)
         ref=${ref#refs/heads/}
-        
+        extra="*"
         if git diff --quiet --ignore-submodules HEAD >/dev/null 2>&1; then
-            echo "%{$fg[yellow]%}($ref)%{$reset_color%} "
-        else
-            echo "%{$fg[yellow]%}($ref*)%{$reset_color%} "
+            extra=""
         fi
+        echo "%{$fg[yellow]%}($ref$extra)%{$reset_color%} "
     fi
 }
 
