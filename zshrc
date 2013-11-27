@@ -176,3 +176,7 @@ function mandelbrot {
         echo
     done
 }
+
+# Go
+export GOPATH=$HOME/Development/Go
+
