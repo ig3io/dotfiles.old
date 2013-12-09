@@ -158,3 +158,13 @@ function mandelbrot {
 
 # Go
 export GOPATH=$HOME/Development/Go
+
+# Export user bin folder
+export PATH=$PATH:$HOME/bin
+
+#alias tmux="TERM=screen-256color-bce tmux"
+
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+xrdb ~/.Xresources
