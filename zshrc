@@ -1,7 +1,5 @@
 PROMPT='%{$fg_bold[yellow]%}%n%{$fg[blue]%}%{$reset_color%} %{$fg[blue]%}%{$fg_bold[blue]%}%~ %{$reset_color%}$(git_prompt)$(vi_prompt)%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
 
-RPROMPT='$(rbenv_prompt) $(pyenv_prompt)'
-
 export DIRSTACKFILE=~/.zdirs
 export DIRSTACKSIZE=8
 export GREP_OPTIONS='--color=always'
@@ -142,25 +140,6 @@ git_prompt() {
     fi
 }
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-rbenv_prompt() {
-    version=$(rbenv version-name)
-    echo "%{$fg_bold[red]%}$version%{$reset_color%}"
-}
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-pyenv_prompt() {
-    version=$(pyenv version-name)
-    echo "%{$fg_bold[green]%}$version%{$reset_color%}"
-}
-
 # from http://stackoverflow.com/a/904023
 function mandelbrot {
     local lines columns colour a b p q i pnew
@@ -179,4 +158,3 @@ function mandelbrot {
 
 # Go
 export GOPATH=$HOME/Development/Go
-
