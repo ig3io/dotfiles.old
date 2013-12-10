@@ -18,3 +18,4 @@ au FileType ruby set shiftwidth=2 softtabstop=2 tabstop=2
 au FileType make set noexpandtab
 
 set laststatus=2
+set viminfo+=n~/Development/.viminfo
