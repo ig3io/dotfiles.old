@@ -60,7 +60,7 @@ bindkey -v '^p' up-line-or-search
 bindkey -v '^s' insert-sudo
 
 ## ALIASES ##
-alias ack="ack --color"
+alias ack="ack-grep --color"
 alias cal="cal -3"
 alias cd=" cd"
 alias diff="diff -yEbwB --suppress-common-lines"
@@ -155,3 +155,8 @@ function mandelbrot {
         echo
     done
 }
+
+# Android NDK
+export NDK_HOME=$HOME/Development/Android/NDK
+export PATH=$PATH:$NDK_HOME
+
