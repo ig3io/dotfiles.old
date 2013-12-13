@@ -5,9 +5,7 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-#exec gnome-settings-daemon
 exec nitrogen --set-centered $WALLPAPER
-exec nm-applet
 
 # i3 config file (v4)
 #
@@ -140,7 +138,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #bindsym $mod+Shift+e exec ~/.i3/i3-exit
 #for_window [class="I3-exit" instance="i3-exit"] floating enable
 
-bindsym $mod+Shift+t exec i3lock -c 000000 -i ~/Pictures/sigur.png -t
+bindsym $mod+Shift+t exec i3lock -c 000000 -i $WALLPAPER -t
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
