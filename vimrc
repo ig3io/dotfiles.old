@@ -8,7 +8,7 @@ set expandtab
 set autoindent
 set encoding=utf-8
 set ruler
-set norelativenumber
+set relativenumber
 set scrolloff=10
 set nu
 syntax on
@@ -46,4 +46,4 @@ endfunc
 nnoremap <silent> <C-c> :call NumberToggle()<cr>
 
 autocmd InsertEnter * call Number()
-"autocmd InsertLeave * call RelativeNumber()
+autocmd InsertLeave * call RelativeNumber()
