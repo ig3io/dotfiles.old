@@ -160,3 +160,5 @@ function mandelbrot {
 export NDK_HOME=$HOME/Development/Android/NDK
 export PATH=$PATH:$NDK_HOME
 
+# Stuff that should go to xinitrc
+xrdb ~/.Xresources

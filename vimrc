@@ -8,13 +8,14 @@ set expandtab
 set autoindent
 set encoding=utf-8
 set ruler
-set norelativenumber
+set relativenumber
 set scrolloff=10
 set nu
 syntax on
 set wildignore+=.git/*,.gitignore,*.class,*.o,*.pyc,*.tar.*,*.tgz,*.zip,*.rar,__*__
 set laststatus=2
 set background=dark
+set t_Co=256
 colorscheme darktango
 
 au FileType ruby set shiftwidth=2 softtabstop=2 tabstop=2
@@ -46,4 +47,4 @@ endfunc
 nnoremap <silent> <C-c> :call NumberToggle()<cr>
 
 autocmd InsertEnter * call Number()
-"autocmd InsertLeave * call RelativeNumber()
+autocmd InsertLeave * call RelativeNumber()
