@@ -59,3 +59,10 @@ autocmd BufWinLeave * call clearmatches()
 function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
+
+autocmd BufWritePre *.rb :call TrimWhiteSpace()
+autocmd BufWritePre *.py :call TrimWhiteSpace()
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'

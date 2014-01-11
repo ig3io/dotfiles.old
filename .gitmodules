@@ -4,3 +4,6 @@
 [submodule "vim/bundle/CoVim"]
 	path = vim/bundle/CoVim
 	url = git://github.com/FredKSchott/CoVim.git
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim
