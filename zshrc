@@ -162,3 +162,10 @@ export PATH=$PATH:$NDK_HOME
 
 # Stuff that should go to xinitrc
 xrdb ~/.Xresources
+
+# $HOME/bin folder
+export PATH=$PATH:$HOME/bin
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
