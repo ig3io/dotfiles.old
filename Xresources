@@ -15,7 +15,7 @@ URxvt.scrollWithBuffer: true
 URxvt.urlLauncher: firefox
 
 URxvt.font: xft:Inconsolata:size=11
-URxvt.letterspacing: -6
+URxvt*letterSpace: -2
 URxvt.transparent: true
 URxvt.shading: 30
 
