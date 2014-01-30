@@ -1,10 +1,10 @@
 execute pathogen#infect()
 filetype plugin indent on
 
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set noexpandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
 set autoindent
 set encoding=utf-8
 set ruler
@@ -18,10 +18,9 @@ set background=dark
 set t_Co=256
 colorscheme darktango
 
-au FileType ruby set shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-au FileType html set shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-au FileType css set shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 au FileType python set shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+au FileType c set shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
+au FileType cpp set shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 au FileType make set noexpandtab
 au FileType vim set expandtab
 
