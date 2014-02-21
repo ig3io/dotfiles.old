@@ -180,3 +180,5 @@ function mandelbrot {
 # Go
 export GOPATH=$HOME/Development/Go
 
+# Heroku
+export PATH="/usr/local/heroku/bin:$PATH"
