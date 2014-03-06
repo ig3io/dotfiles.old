@@ -164,7 +164,8 @@ export PATH=$PATH:$HOME/bin
 
 #alias tmux="TERM=screen-256color-bce tmux"
 
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
 xrdb ~/.Xresources
+
+# Ruby
+export PATH=/home2/users/alumnes/1125622/.gem/ruby/1.9.1/bin:$PATH
+
