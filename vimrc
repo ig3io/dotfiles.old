@@ -20,6 +20,9 @@ au FileType make set noexpandtab
 set laststatus=2
 set viminfo+=n~/Development/.viminfo
 
+" Key bindings
+nnoremap <C-l> gt
+nnoremap <C-h> gT
 
 " Trailing whitespace highlighting
 highlight ExtraWhitespace ctermbg=red guibg=red
