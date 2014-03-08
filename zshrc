@@ -181,4 +181,8 @@ function mandelbrot {
 export GOPATH=$HOME/Development/Go
 
 # Heroku
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH=/usr/local/heroku/bin:$PATH
+
+# Android
+export PATH=/opt/android-sdk/tools:/opt/android-sdk/platform-tools:$PATH
+
