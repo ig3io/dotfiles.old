@@ -1,6 +1,6 @@
 PROMPT='%{$fg_bold[yellow]%}%n%{$fg[blue]%}%{$reset_color%} %{$fg[blue]%}%{$fg_bold[blue]%}%~ %{$reset_color%}$(git_prompt)$(vi_prompt)%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} '
 
-RPROMPT='$(rbenv_prompt) $(pyenv_prompt)'
+RPROMPT='$(rbenv_prompt)'
 
 export DIRSTACKFILE=~/.zdirs
 export DIRSTACKSIZE=8
@@ -66,13 +66,16 @@ alias ack="ack --color"
 alias cal="cal -3"
 alias cd=" cd"
 alias diff="diff -yEbwB --suppress-common-lines"
-alias ls=" ls --color=auto"
+#alias ls=" ls --color=auto"
 alias sl="ls"
 alias l="ls -h"
 alias ll="ls -lh"
 alias la="ls -lah"
 alias csyntax="clang -fsyntax-only"
 alias canalyze="clang --analyze"
+
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 
 ## SNIPPETS ##
@@ -151,16 +154,6 @@ rbenv_prompt() {
     echo "%{$fg_bold[red]%}$version%{$reset_color%}"
 }
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-pyenv_prompt() {
-    version=$(pyenv version-name)
-    echo "%{$fg_bold[green]%}$version%{$reset_color%}"
-}
-
 # from http://stackoverflow.com/a/904023
 function mandelbrot {
     local lines columns colour a b p q i pnew
@@ -176,13 +169,3 @@ function mandelbrot {
         echo
     done
 }
-
-# Go
-export GOPATH=$HOME/Development/Go
-
-# Heroku
-export PATH=/usr/local/heroku/bin:$PATH
-
-# Android
-export PATH=/opt/android-sdk/tools:/opt/android-sdk/platform-tools:$PATH
-
