@@ -186,3 +186,8 @@ export PATH=/usr/local/heroku/bin:$PATH
 # Android
 export PATH=/opt/android-sdk/tools:/opt/android-sdk/platform-tools:$PATH
 
+export EDITOR=vim
+
+# Play Framework
+export PATH=$HOME/Play/play:$PATH
+
