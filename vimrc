@@ -1,6 +1,7 @@
 execute pathogen#infect()
 filetype plugin indent on
 
+set modeline
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
@@ -21,6 +22,11 @@ au FileType python set shiftwidth=4 softtabstop=4 tabstop=4
 au FileType c set shiftwidth=4 softtabstop=4 tabstop=4
 au FileType cpp set shiftwidth=4 softtabstop=4 tabstop=4
 au FileType make set noexpandtab
+
+" Gnome Terminal 256 colors
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
 
 " Key bindings
 nnoremap <C-l> gt
@@ -62,9 +68,14 @@ function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
 
-autocmd BufWritePre *.rb :call TrimWhiteSpace()
-autocmd BufWritePre *.py :call TrimWhiteSpace()
+autocmd BufWritePre *.{rb,py,c,cpp,h,hpp} :call TrimWhiteSpace()
+"
+"autocmd BufWritePre *.py :call TrimWhiteSpace()
+"autocmd BufWritePre *.c :call TrimWhiteSpace()
+"autocmd BufWritePre *.c :call TrimWhiteSpace()
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+au BufRead,BufNewFile *.md set filetype=markdown
