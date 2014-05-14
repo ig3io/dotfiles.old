@@ -28,4 +28,5 @@ setxkbmap es
 xmodmap ~/.Xmodmap
 xrdb ~/.Xresources
 export WALLPAPER=$HOME/Pictures/sigur.png
+# exec gnome-session
 exec i3
