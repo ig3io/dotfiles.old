@@ -177,9 +177,6 @@ function mandelbrot {
     done
 }
 
-# Go
-export GOPATH=$HOME/Development/Go
-
 # Heroku
 export PATH=/usr/local/heroku/bin:$PATH
 
@@ -187,7 +184,3 @@ export PATH=/usr/local/heroku/bin:$PATH
 export PATH=/opt/android-sdk/tools:/opt/android-sdk/platform-tools:$PATH
 
 export EDITOR=vim
-
-# Play Framework
-export PATH=$HOME/Play/play:$PATH
-
