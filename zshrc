@@ -173,4 +173,12 @@ function mandelbrot {
 # Android
 export ANDROID_HOME=$HOME/Android
 export PATH=$ANDROID_HOME/sdk:$ANDROID_HOME/eclipse:$ANDROID_HOME/ndk:$PATH
+export PATH=$ANDROID_HOME/sdk/tools:$PATH
+export PATH=$ANDROID_HOME/sdk/platform-tools:$PATH
+
+# Vuforia
+export VUFORIA_HOME=$HOME/Development/Vuforia
+
+# bin folder
+export PATH=$HOME/bin:$PATH
 
